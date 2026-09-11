@@ -3,15 +3,17 @@ using GM_Frota.utils;
 
 namespace GM_Frota.entities
 {
-    class FuncionarioTransporte : IFuncionarioTransporte
+    public abstract class FuncionarioTransporte : IFuncionarioTransporte
     {
         private string nome = string.Empty;
         private string registro = string.Empty;
+        private IVeiculo veiculo;
 
-        public FuncionarioTransporte(string nome, string registro)
+        protected FuncionarioTransporte(string nome, string registro, IVeiculo veiculo)
         {
             this.nome = nome;
             this.registro = registro;
+            this.veiculo = veiculo;
         }
 
         public string Nome
@@ -26,9 +28,13 @@ namespace GM_Frota.entities
             set { registro = value; }
         }
 
+        public IVeiculo Veiculo
+        {
+            get { return veiculo; }
+            set { veiculo = value; }
+        }
 
-
-        public void MostrarDetalhes()
+        public virtual void MostrarDetalhes()
         {
             ConsoleWriter.WriteStart();
             ConsoleWriter.WriteEmptyLine();
@@ -36,7 +42,6 @@ namespace GM_Frota.entities
             ConsoleWriter.WriteEmptyLine();
             ConsoleWriter.WriteLine("Registro", this.Registro);
             ConsoleWriter.WriteEmptyLine();
-            ConsoleWriter.WriteEnd();
         }
     }
 }
