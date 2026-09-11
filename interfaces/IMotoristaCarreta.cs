@@ -2,5 +2,6 @@
 {
     internal interface IMotoristaCarreta : IFuncionarioTransporte
     {
+        string CategoriaCnh { get; set; }
     }
 }
