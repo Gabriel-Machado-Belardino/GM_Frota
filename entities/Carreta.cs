@@ -6,8 +6,9 @@ namespace GM_Frota.entities
     {
         private float pesoSuportado = 0;
 
-        public Carreta(string nome, string cor, int ano, int rodas, float peso, string placa) : base(nome, cor, ano, rodas, peso, placa)
+        public Carreta(string nome, string cor, int ano, int rodas, float peso, string placa, float pesoSuportado) : base(nome, cor, ano, rodas, peso, placa)
         {
+            this.pesoSuportado = pesoSuportado;
         }
 
         public float PesoSuportado { get  { return pesoSuportado; } set { pesoSuportado = value; } }
